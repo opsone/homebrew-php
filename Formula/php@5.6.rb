@@ -4,6 +4,11 @@ class PhpAT56 < Formula
   url "https://php.net/get/php-5.6.40.tar.xz/from/this/mirror"
   sha256 "1369a51eee3995d7fbd1c5342e5cc917760e276d561595b6052b21ace2656d1c"
 
+  bottle do
+    root_url "https://dl.bintray.com/opsone/homebrew-php/"
+    sha256 "76c669d3342d8c9fdb4dc1474d2154cc2b382e5a5309f5f9b290af6371213067" => :mojave
+  end
+
   keg_only :versioned_formula
 
   depends_on "httpd" => [:build, :test]
@@ -37,11 +42,6 @@ class PhpAT56 < Formula
   patch :DATA
 
   def install
-    # Ensure that libxml2 will be detected correctly in older MacOS
-    if MacOS.version == :el_capitan || MacOS.version == :sierra
-      ENV["SDKROOT"] = MacOS.sdk_path
-    end
-
     # buildconf required due to system library linking bug patch
     system "./buildconf", "--force"
 
