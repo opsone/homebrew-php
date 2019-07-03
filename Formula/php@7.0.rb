@@ -4,6 +4,11 @@ class PhpAT70 < Formula
   url "https://php.net/get/php-7.0.33.tar.xz/from/this/mirror"
   sha256 "ab8c5be6e32b1f8d032909dedaaaa4bbb1a209e519abb01a52ce3914f9a13d96"
 
+  bottle do
+    root_url "https://dl.bintray.com/opsone/homebrew-php"
+    sha256 "fb700bf5a5179f202f9b7d16bb6922ff4340d5729569b1d2476a4c4b313cc971" => :mojave
+  end
+
   keg_only :versioned_formula
 
   depends_on "httpd" => [:build, :test]
