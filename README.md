@@ -1,5 +1,5 @@
 # homebrew-php
 
-#1 Install
+## Install
 
 ```brew tap opsone/php```
