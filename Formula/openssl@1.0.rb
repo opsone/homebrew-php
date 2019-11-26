@@ -10,6 +10,7 @@ class OpensslAT10 < Formula
   sha256 "14cb464efe7ac6b54799b34456bd69558a749a4931ecfd9cf9f71d7881cac7bc"
 
   bottle do
+    root_url "https://dl.bintray.com/opsone/homebrew-php"
     sha256 "384048fecc5e142ff996ba5b1c71ab4b45b1d2f5ddaee2c8b7c42218e8c17f42" => :mojave
   end
 
