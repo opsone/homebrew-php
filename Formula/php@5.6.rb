@@ -6,6 +6,7 @@ class PhpAT56 < Formula
 
   bottle do
     root_url "https://dl.bintray.com/opsone/homebrew-php"
+    rebuild 1
     sha256 "76c669d3342d8c9fdb4dc1474d2154cc2b382e5a5309f5f9b290af6371213067" => :mojave
   end
 
@@ -31,7 +32,6 @@ class PhpAT56 < Formula
   depends_on "libzip"
   depends_on "mcrypt"
   depends_on "openldap"
-  depends_on "openssl"
   depends_on "pcre"
   depends_on "sqlite"
   depends_on "tidy-html5"
@@ -142,7 +142,7 @@ class PhpAT56 < Formula
       --with-mysqli=mysqlnd
       --with-mysql=mysqlnd
       --with-ndbm#{headers_path}
-      --with-openssl=#{Formula["openssl"].opt_prefix}
+      --without-openssl
       --with-pdo-dblib=#{Formula["freetds"].opt_prefix}
       --with-pdo-mysql=mysqlnd
       --with-pdo-odbc=unixODBC,#{Formula["unixodbc"].opt_prefix}
