@@ -6,7 +6,8 @@ class PhpAT70 < Formula
 
   bottle do
     root_url "https://dl.bintray.com/opsone/homebrew-php"
-    sha256 "fb700bf5a5179f202f9b7d16bb6922ff4340d5729569b1d2476a4c4b313cc971" => :mojave
+    rebuild 1
+    sha256 "e278d53bb37651eca3fecc0ae4a038f32fba87502bf7eff9436b81f46839bf06" => :mojave
   end
 
   keg_only :versioned_formula
