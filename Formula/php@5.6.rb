@@ -26,6 +26,7 @@ class PhpAT56 < Formula
   depends_on "libzip"
   depends_on "mcrypt"
   depends_on "openldap"
+  depends_on "openssl"
   depends_on "pcre"
   depends_on "sqlite"
   depends_on "tidy-html5"
@@ -34,6 +35,12 @@ class PhpAT56 < Formula
   # PHP build system incorrectly links system libraries
   # see https://github.com/php/php-src/pull/3472
   patch :DATA
+
+  # Applies patch enabling compilation of PHP@5.6 with homebrew openssl@1.1
+  patch :p1 do
+    url "https://raw.githubusercontent.com/opsone/homebrew-php/master/Patch/0001-PHP-5.6-LibSSL-1.1-compatibility.patch"
+    sha256 "dbcdf5e7996538dae8d70a69a0cec542ac50e51e870dee026bd702ffa1d8aa2d"
+  end
 
   def install
     # buildconf required due to system library linking bug patch
@@ -136,7 +143,7 @@ class PhpAT56 < Formula
       --with-mysqli=mysqlnd
       --with-mysql=mysqlnd
       --with-ndbm#{headers_path}
-      --without-openssl
+      --with-openssl=#{Formula["openssl"].opt_prefix}
       --with-pdo-dblib=#{Formula["freetds"].opt_prefix}
       --with-pdo-mysql=mysqlnd
       --with-pdo-odbc=unixODBC,#{Formula["unixodbc"].opt_prefix}
